@@ -11,6 +11,12 @@ public class Users {
 
     private Integer isadmin;
 
+    private String tname;//房屋类型名称
+    private String sname;//街道名称
+    private String dname;//区域信息
+
+
+
     public Integer getId() {
         return id;
     }
@@ -50,4 +56,30 @@ public class Users {
     public void setIsadmin(Integer isadmin) {
         this.isadmin = isadmin;
     }
+
+    public String getTname() {
+        return tname;
+    }
+
+    public void setTname(String tname) {
+        this.tname = tname;
+    }
+
+    public String getSname() {
+        return sname;
+    }
+
+    public void setSname(String sname) {
+        this.sname = sname;
+    }
+
+    public String getDname() {
+        return dname;
+    }
+
+    public void setDname(String dname) {
+        this.dname = dname;
+    }
+
+
 }

@@ -2,10 +2,7 @@ package cn.itcast.service.Impl;
 
 import cn.itcast.dao.TypeMapper;
 import cn.itcast.dao.UsersMapper;
-import cn.itcast.model.Type;
-import cn.itcast.model.TypeExample;
-import cn.itcast.model.Users;
-import cn.itcast.model.UsersExample;
+import cn.itcast.model.*;
 import cn.itcast.service.UserService;
 import cn.itcast.utils.MD5Utils;
 import cn.itcast.utils.UserCondition;
@@ -97,5 +94,16 @@ public class UserServiceImpl implements UserService {
         String newPassword = MD5Utils.md5Encrypt(users.getPassword());
         users.setPassword(newPassword);
         return usersMapper.findUser(users);
+    }
+
+    /**
+     * 根据用户id查询房屋详细信息
+     * @param userHouseMsg
+     * @return
+     */
+    @Override
+    public Users getHouseMsgByID(UserHouseMsg userHouseMsg) {
+        Users users = usersMapper.getHouseMsgById(userHouseMsg);
+        return users;
     }
 }

@@ -43,19 +43,6 @@ public interface AdminHouseService {
      */
     void updateHouse(House house);
 
-//    /**
-//     * 根据id删除区域信息
-//     * @param id
-//     */
-//    void delById(Integer id);
-//
-//    /**
-//     * 批量删除区域信息
-//     * @param integers
-//     * @return
-//     */
-//    int deleteMoreHouse(Integer[] integers);
-
     /**
      * 查询所有区域信息
      * @return
@@ -63,4 +50,24 @@ public interface AdminHouseService {
     List<House> findAll();
 
 
+    /**
+     * 审核房屋信息
+     * @param id
+     * @return
+     */
+    int PasHouseById(String id);
+
+    /**
+     * 查询所有已审核通过的房屋信息
+     * @param pageUtil
+     * @return
+     */
+    PageInfo<House> getAllHouseByPageIsPass(PageUtil pageUtil);
+
+    /**
+     * 查询未审核通过的房屋信息
+     * @param pageUtil
+     * @return
+     */
+    PageInfo<House> getAllHouseByPageIsNotPass(PageUtil pageUtil);
 }

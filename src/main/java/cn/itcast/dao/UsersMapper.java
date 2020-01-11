@@ -1,5 +1,6 @@
 package cn.itcast.dao;
 
+import cn.itcast.model.UserHouseMsg;
 import cn.itcast.model.Users;
 import cn.itcast.model.UsersExample;
 import org.apache.ibatis.annotations.Param;
@@ -40,4 +41,10 @@ public interface UsersMapper {
     @Select("SELECT * FROM users WHERE NAME=#{name}  AND PASSWORD=#{password}")
     Users findUser(Users users);
 
+    /**
+     * 根据用户id+房屋id查询房屋详细信息
+     * @param userHouseMsg+hid
+     * @return
+     */
+    Users getHouseMsgById(UserHouseMsg userHouseMsg);
 }

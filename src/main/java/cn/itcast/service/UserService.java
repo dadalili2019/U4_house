@@ -1,5 +1,6 @@
 package cn.itcast.service;
 
+import cn.itcast.model.UserHouseMsg;
 import cn.itcast.model.Users;
 import cn.itcast.utils.UserCondition;
 import com.github.pagehelper.PageInfo;
@@ -40,4 +41,11 @@ public interface UserService {
      * @return
      */
     Users loginUser(Users users);
+
+    /**
+     * 根据用户id查询房屋详细信息
+     * @param userHouseMsg
+     * @return
+     */
+    Users getHouseMsgByID(UserHouseMsg userHouseMsg);
 }

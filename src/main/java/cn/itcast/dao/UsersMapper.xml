@@ -134,4 +134,15 @@
       ISADMIN = #{isadmin,jdbcType=INTEGER}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+<!--根据用户id查询房屋信息-->
+    <select id="getHouseMsgById"  parameterType="cn.itcast.model.UserHouseMsg" resultType="cn.itcast.model.Users">
+    SELECT
+        u.name,u.TELEPHONE,t.name tname,s.name sname,d.name dname
+	FROM users u
+		LEFT JOIN house h ON u.id=h.USER_ID
+		LEFT JOIN TYPE t ON h.TYPE_ID=t.id
+		LEFT JOIN street s ON h.STREET_ID=s.id
+		LEFT JOIN district d ON s.id=d.id
+		WHERE u.id=#{uid} and h.id=#{hid}
+    </select>
 </mapper>

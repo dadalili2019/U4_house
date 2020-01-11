@@ -6,6 +6,7 @@ import cn.itcast.utils.SearchHouseCondition;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.List;
 
@@ -59,4 +60,11 @@ public interface HouseMapper {
      */
     List<House> findByConditionOnPage(SearchHouseCondition searchHouseCondition);
 
+    /**
+     * 审核房屋通过房屋信息
+     * @param id
+     * @return
+     */
+    @Update("UPDATE house SET ispass=1 WHERE id= #{id}")
+    int getPassById(@Param(value = "id") String id);
 }

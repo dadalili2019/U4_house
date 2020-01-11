@@ -26,7 +26,7 @@ public class AdminHouseServiceImpl implements AdminHouseService {
 
     @Autowired
     private HouseMapper houseMapper;
-    
+
     /**
      * 分页展示区域信息
      *
@@ -110,11 +110,58 @@ public class AdminHouseServiceImpl implements AdminHouseService {
 
     /**
      * 查询所有街道信息
+     *
      * @return
      */
     @Override
     public List<House> findAll() {
         return houseMapper.findAll();
+    }
+
+    /**
+     * 审核房屋信息
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public int PasHouseById(String id) {
+        return houseMapper.getPassById(id);
+    }
+
+    /**
+     * 查询所有已审核通过的房屋信息
+     *
+     * @param pageUtil
+     * @return
+     */
+    @Override
+    public PageInfo<House> getAllHouseByPageIsPass(PageUtil pageUtil) {
+        //开启分页
+        PageHelper.startPage(pageUtil.getPage(), pageUtil.getRows());
+        HouseExample houseExample = new HouseExample();
+        HouseExample.Criteria criteria = houseExample.createCriteria();
+        criteria.andIspassEqualTo(1);
+        List<House> districts = houseMapper.selectByExample(houseExample);
+        return new PageInfo<>(districts);
+
+    }
+
+    /**
+     * 查询未审核通过的房屋信息
+     *
+     * @param pageUtil
+     * @return
+     */
+    @Override
+    public PageInfo<House> getAllHouseByPageIsNotPass(PageUtil pageUtil) {
+        //开启分页
+        PageHelper.startPage(pageUtil.getPage(), pageUtil.getRows());
+        HouseExample houseExample = new HouseExample();
+        HouseExample.Criteria criteria = houseExample.createCriteria();
+        criteria.andIspassEqualTo(0);
+        List<House> districts = houseMapper.selectByExample(houseExample);
+        return new PageInfo<>(districts);
     }
 
 }
