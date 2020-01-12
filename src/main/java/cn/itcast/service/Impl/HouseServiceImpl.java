@@ -97,4 +97,14 @@ public class HouseServiceImpl implements HouseService {
         List<House> houses=houseMapper.findByConditionOnPage(searchHouseCondition);
         return new PageInfo<>(houses);
     }
+
+    /**
+     * 根据房屋id查询房屋详细信息
+     * @param id
+     * @return
+     */
+    @Override
+    public House findUserHouseById(String id) {
+        return houseMapper.findUserHouseById(id);
+    }
 }

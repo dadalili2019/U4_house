@@ -45,13 +45,13 @@
             <TBODY>
             <c:forEach items="${pageInfo.list}" var="house">
                 <TR>
-                    <TD class=house-thumb><SPAN><A href="details.htm" target="_blank"><img
+                    <TD class=house-thumb><SPAN><A href="#" target="_blank"><img
                             src="http://localhost:80/${house.path}"
                             width="100" height="75"
                             alt=""></A></SPAN></TD>
                     <TD>
                         <DL>
-                            <DT><A href="details.htm" target="_blank">${house.title}</A></DT>
+                            <DT><A href="${pageContext.request.contextPath}/page/findUserHouseById.do?id=${house.id}" target="_blank">${house.title}</A></DT>
                             <DD>${house.dname}${house.sname},${house.floorage}平米<BR>联系方式：${house.contact}</DD>
                         </DL>
                     </TD>

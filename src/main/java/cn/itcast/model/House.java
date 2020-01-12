@@ -36,6 +36,7 @@ public class House implements Serializable {
     private String dname;//区域信息
     private String sname;//街道信息
     private String tname;//房屋信息
+    private String utel;//房屋所属用户电话
 
     private String  did;//区域信息id
 
@@ -173,5 +174,13 @@ public class House implements Serializable {
 
     public void setPath(String path) {
         this.path = path == null ? null : path.trim();
+    }
+
+    public String getUtel() {
+        return utel;
+    }
+
+    public void setUtel(String utel) {
+        this.utel = utel;
     }
 }

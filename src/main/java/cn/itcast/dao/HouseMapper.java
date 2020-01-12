@@ -67,4 +67,11 @@ public interface HouseMapper {
      */
     @Update("UPDATE house SET ispass=1 WHERE id= #{id}")
     int getPassById(@Param(value = "id") String id);
+
+    /**
+     * 根据房屋id查询房屋详细信息
+     * @param parseInt
+     * @return
+     */
+    House findUserHouseById(String parseInt);
 }

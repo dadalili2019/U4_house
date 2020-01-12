@@ -181,4 +181,17 @@ public class HouseController {
         model.addAttribute("searchHouseCondition", searchHouseCondition);
         return "forward:list.jsp";
     }
+
+    /**
+     * 根据房屋id查询房屋详细信息
+     * @param id
+     * @param model
+     * @return
+     */
+    @RequestMapping("findUserHouseById.do")
+    public String findUserHouseById(String id,Model model){
+        House house=houseService.findUserHouseById(id);
+        model.addAttribute("house",house);
+        return "forward:details.jsp";
+    }
 }

@@ -247,7 +247,7 @@
       ON
           h.street_id=s.id
       WHERE
-          isdel=0 and h.user_id=#{uid}
+          isdel=0 and h.user_id=#{uid} and ispass=1
   </select>
   <select id="findById" parameterType="java.lang.String" resultType="House">
     SELECT
@@ -300,4 +300,26 @@
       and price &lt; #{endPrice}
     </if>
   </select>
+<!--    根据房屋id查询房屋详细信息-->
+    <select id="findUserHouseById" parameterType="java.lang.String" resultType="cn.itcast.model.House">
+    SELECT h.*,t.name tname,d.name dname,s.name sname,u.TELEPHONE utel
+     FROM house h
+      LEFT JOIN
+        TYPE t
+      ON
+        h.TYPE_ID=t.id
+	  LEFT JOIN
+	    district d
+	  ON
+	    h.STREET_ID=d.id
+	  LEFT JOIN
+	    street s
+	  ON
+	    d.id=s.id
+	  LEFT JOIN
+	    users u
+	  ON
+	    h.USER_ID=u.id
+	WHERE h.ispass=1 AND h.isdel=0
+    </select>
 </mapper>

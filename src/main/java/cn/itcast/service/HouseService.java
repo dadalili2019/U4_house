@@ -55,4 +55,11 @@ public interface HouseService {
      * @return
      */
     PageInfo<House> getUiAllHouseByPage(SearchHouseCondition searchHouseCondition, PageUtil pageUtil);
+
+    /**
+     * 根据房屋id查询房屋详细信息
+     * @param id
+     * @return
+     */
+    House findUserHouseById(String id);
 }
