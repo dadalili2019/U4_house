@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>区域管理</title>
+    <link rel="stylesheet" type="text/css" href="easyUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="easyUI/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="easyUI/css/demo.css">
+    <script language="JavaScript" type="text/javascript" src="js/jquery-1.8.3.js"></script>
+    <script src="js/jquery.easyui.min.js" type="text/javascript" language="javascript"></script>
+    <script type="text/javascript" language="javascript" src="js/isNotPass.js"></script>
+</head>
+
+<body>
+<!--显示区域的表格-->
+<table id="td"></table>
+
+<!--定义工具栏-->
+<div id="ToolBar">
+    <div style="height: 40px;">
+        房屋名称:<input type="text" id="inputName" name="name">电话:<input id="inputTel" type="text" name="tel">
+        <a id="btn" href="javascript:searchUser();" class="easyui-linkbutton"
+           data-options="iconCls:'icon-search'">搜索</a>
+    </div>
+</div>
+
+<!--详情窗口-->
+<div id="getByIdDialog" class="easyui-dialog" buttons="#upDialogButtons"
+     style="width: 280px; height: 250px; padding: 10px 20px;" closed="true" modal="true">
+    <form id="getByIdDialogForm" method="post">
+        <table>
+            <tr>
+                <td width="50%">房屋用户:</td>
+                <td><input type="text" class="easyui-validatebox" readonly
+                           name="name"/></td>
+            </tr>
+
+            <tr>
+                <td>联系电话:</td>
+                <td><input type="text" class="easyui-validatebox" readonly
+                           name="telephone"/></td>
+            </tr>
+            <tr>
+                <td>房屋类型:</td>
+                <td><input type="text" class="easyui-validatebox" readonly
+                           name="tname"/></td>
+            </tr>
+            <tr>
+                <td>房屋区域:</td>
+                <td>
+
+                    <input type="text" class="easyui-validatebox" readonly
+                           name="dname"/>
+                </td>
+            </tr>
+            <tr>
+                <td>所属街道:</td>
+                <td>
+                    <input type="text" class="easyui-validatebox" readonly
+                           name="sname"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
