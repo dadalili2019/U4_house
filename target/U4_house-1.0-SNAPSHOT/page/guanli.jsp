@@ -19,11 +19,12 @@
                 }
             });
         });
+
         //根据id删除
         function isDel(data) {
-           if (confirm("确认删除吗？")){
-               location.href="DelHouseById.do?id="+data+"&isDel=1";
-           }
+            if (confirm("确认删除吗？")) {
+                location.href = "DelHouseById.do?id=" + data + "&isDel=1";
+            }
         }
 
     </script>
@@ -36,6 +37,10 @@
         <h2>欢迎你${user.name}</h2>
         <LABEL class="ui-green searchs">
             <a href="fabu.jsp" title="">发布房屋信息</a></LABEL>
+        </LABEL>
+        <LABEL class="ui-green searchs">
+            <a href="revise.jsp" title="">修改个人信息</a></LABEL>
+        </LABEL>
         <LABEL class=ui-green><INPUT value="退       出" type=button name=search id="out"></LABEL>
     </DIV>
 </DIV>
@@ -51,7 +56,8 @@
                             alt=""></A></SPAN></TD>
                     <TD>
                         <DL>
-                            <DT><A href="${pageContext.request.contextPath}/page/findUserHouseById.do?id=${house.id}" target="_blank">${house.title}</A></DT>
+                            <DT><A href="${pageContext.request.contextPath}/page/findUserHouseById.do?id=${house.id}"
+                                   target="_blank">${house.title}</A></DT>
                             <DD>${house.dname}${house.sname},${house.floorage}平米<BR>联系方式：${house.contact}</DD>
                         </DL>
                     </TD>
@@ -62,7 +68,8 @@
                     <TD class=house-type><LABEL class=ui-green><INPUT
                             onclick="location.href='findById.do?id=${house.id}'" value="修    改" type=button
                             name=search></LABEL></TD>
-                    <TD class=house-price><LABEL class=ui-green><INPUT value="删    除" type=button name=search onclick="isDel(${house.id})"></LABEL>
+                    <TD class=house-price><LABEL class=ui-green><INPUT value="删    除" type=button name=search
+                                                                       onclick="isDel(${house.id})"></LABEL>
                     </TD>
                 </TR>
             </c:forEach>

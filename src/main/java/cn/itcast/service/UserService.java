@@ -48,4 +48,26 @@ public interface UserService {
      * @return
      */
     Users getHouseMsgByID(UserHouseMsg userHouseMsg);
+
+    /**
+     * 前台验证用户名是否存在
+     * @param username
+     * @return
+     */
+    Users checkUser(String username);
+
+
+    /**
+     * 前台用户验证旧密码是否正确
+     * @param oldPassword
+     * @return
+     */
+    int checkOldPassword(String oldPassword,String username);
+
+    /**
+     * 用户修改个人信息
+     * @param users
+     * @return
+     */
+    int modifyMsg(Users users);
 }

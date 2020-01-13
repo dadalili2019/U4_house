@@ -47,4 +47,20 @@ public interface UsersMapper {
      * @return
      */
     Users getHouseMsgById(UserHouseMsg userHouseMsg);
+
+    /**
+     * 根据用户名查询用户是否存在
+     * @param username
+     * @return
+     */
+    @Select("SELECT * FROM users WHERE NAME =#{username} ")
+    Users checkUser(@Param(value = "username") String username);
+
+    /**
+     * 前台验证旧密码是否正确
+     * @param users
+     * @return
+     */
+    @Select("SELECT * FROM users WHERE NAME =#{name} AND PASSWORD =#{password}")
+    int checkPassword(Users users);
 }

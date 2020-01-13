@@ -106,4 +106,42 @@ public class UserServiceImpl implements UserService {
         Users users = usersMapper.getHouseMsgById(userHouseMsg);
         return users;
     }
+
+    /**
+     * 用户修改验证用户是否存在
+     * @param username
+     * @return
+     */
+    @Override
+    public Users checkUser(String username) {
+        return usersMapper.checkUser(username);
+    }
+
+    /**
+     * 前台验证旧密码是否正确
+     * @param oldPassword
+     * @return
+     */
+    @Override
+    public int checkOldPassword(String oldPassword,String username) {
+        //MD5转码
+        String s = MD5Utils.md5Encrypt(oldPassword);
+        Users users = new Users();
+        users.setPassword(s);
+        users.setName(username);
+        return usersMapper.checkPassword(users);
+    }
+
+    /**
+     * 用户修改个人信息
+     * @param users
+     * @return
+     */
+    @Override
+    public int modifyMsg(Users users) {
+        //MD5转码
+        String newPassword = MD5Utils.md5Encrypt(users.getPassword());
+        users.setPassword(newPassword);
+        return usersMapper.updateByPrimaryKey(users);
+    }
 }

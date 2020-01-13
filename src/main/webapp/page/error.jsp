@@ -9,7 +9,7 @@
 <center>
 <img src="../images/timg.jpg">
 <h1>
-<a href="regs.jsp">去登录</a>
+<a href="login.jsp">去登录</a>
 </h1>
 </center>
 </body>
